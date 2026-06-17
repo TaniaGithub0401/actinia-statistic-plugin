@@ -129,8 +129,7 @@ class AsyncEphemeralVectorSamplingResource(ResourceBase):
     @swagger.doc(deepcopy(SCHEMA_DOC))
     def post(self, project_name, mapset_name, vector_name):
         """
-        Perform vector map sampling on a vector map layer based on input
-        points asynchronously
+        Sample a vector map layer using input points asynchronously.
         """
         self._execute(project_name, mapset_name, vector_name)
         html_code, response_model = pickle.loads(self.response_data)
@@ -150,8 +149,7 @@ class SyncEphemeralVectorSamplingResource(
     @swagger.doc(deepcopy(SCHEMA_DOC))
     def post(self, project_name, mapset_name, vector_name):
         """
-        Perform vector map sampling on a vector map layer based on input
-        points synchronously
+        Sample a vector map layer using input points synchronously.
         """
         check = self._execute(project_name, mapset_name, vector_name)
         if check is not None:

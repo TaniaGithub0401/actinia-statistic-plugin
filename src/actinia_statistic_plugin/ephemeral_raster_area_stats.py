@@ -114,8 +114,7 @@ class AsyncEphemeralRasterAreaStatsResource(ResourceBase):
     @swagger.doc(deepcopy(SCHEMA_DOC))
     def post(self, project_name, mapset_name, raster_name):
         """
-        Compute areal categorical statistics on a raster map layer based on
-        an input polygon asynchronously
+        Compute areal categorical raster statistics asynchronously.
         """
         self._execute(project_name, mapset_name, raster_name)
         html_code, response_model = pickle.loads(self.response_data)
@@ -135,8 +134,7 @@ class SyncEphemeralRasterAreaStatsResource(
     @swagger.doc(deepcopy(SCHEMA_DOC))
     def post(self, project_name, mapset_name, raster_name):
         """
-        Compute areal categorical statistics on a raster map layer based on an
-        input polygon synchronously
+        Compute areal categorical raster statistics synchronously.
         """
         check = self._execute(project_name, mapset_name, raster_name)
         if check is not None:

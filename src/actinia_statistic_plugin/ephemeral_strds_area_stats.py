@@ -148,8 +148,7 @@ class AsyncEphemeralSTRDSAreaStatsResource(ResourceBase):
     @swagger.doc(deepcopy(SCHEMA_DOC))
     def post(self, project_name, mapset_name, strds_name, timestamp):
         """
-        Compute area statistics based on a vector map for a single raster
-        layer that is temporally sampled from a STRDS by a timestamp.
+        Compute STRDS-based areal categorical raster statistics asynchronously.
 
         Raises:
             InvalidUsage: In case the timestamp is wrong or the XML content
@@ -171,8 +170,7 @@ class SyncEphemeralSTRDSAreaStatsResource(
 
     @swagger.doc(deepcopy(SCHEMA_DOC))
     def post(self, project_name, mapset_name, strds_name, timestamp):
-        """Compute area statistics based on a vector map for a single raster
-        layer that is temporally sampled from a STRDS by a timestamp.
+        """Compute STRDS-based areal categorical raster statistics synchronously.
 
         Raises:
             InvalidUsage: In case the timestamp is wrong or the XML content

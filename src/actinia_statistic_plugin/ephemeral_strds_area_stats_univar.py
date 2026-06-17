@@ -145,8 +145,7 @@ class AsyncEphemeralSTRDSAreaStatsUnivarResource(ResourceBase):
     @swagger.doc(deepcopy(SCHEMA_DOC))
     def post(self, project_name, mapset_name, strds_name, timestamp):
         """
-        Compute areal univariate statistics on a raster map layer contained in
-        a space-time raster dataset based on an input polygon.
+        Compute STRDS-based areal univariate raster statistics asynchronously."
         """
         self._execute(project_name, mapset_name, strds_name, timestamp)
         html_code, response_model = pickle.loads(self.response_data)
@@ -165,8 +164,7 @@ class SyncEphemeralSTRDSAreaStatsUnivarResource(
     @swagger.doc(deepcopy(SCHEMA_DOC))
     def post(self, project_name, mapset_name, strds_name, timestamp):
         """
-        Compute areal univariate statistics on a raster map layer contained in
-        a space-time raster dataset based on an input polygon.
+        Compute STRDS-based areal univariate raster statistics synchronously.
         """
         check = self._execute(
             project_name, mapset_name, strds_name, timestamp

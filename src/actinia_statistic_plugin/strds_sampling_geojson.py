@@ -242,7 +242,7 @@ SCHEMA_DOC = {
 
 
 class AsyncEphemeralSTRDSSamplingGeoJSONResource(ResourceBase):
-    """Sample a STRDS at vector point projects, asynchronous call"""
+    """Sample a STRDS at vector point projects, asynchronous call."""
 
     def _execute(self, project_name, mapset_name, strds_name):
 
@@ -263,7 +263,7 @@ class AsyncEphemeralSTRDSSamplingGeoJSONResource(ResourceBase):
 
     @swagger.doc(deepcopy(SCHEMA_DOC))
     def post(self, project_name, mapset_name, strds_name):
-        """Sample a strds by point coordinates, asynchronous call"""
+        """Sample a strds by point coordinates, asynchronous call."""
         self._execute(project_name, mapset_name, strds_name)
         html_code, response_model = pickle.loads(self.response_data)
         return make_response(jsonify(response_model), html_code)
@@ -272,11 +272,11 @@ class AsyncEphemeralSTRDSSamplingGeoJSONResource(ResourceBase):
 class SyncEphemeralSTRDSSamplingGeoJSONResource(
     AsyncEphemeralSTRDSSamplingGeoJSONResource
 ):
-    """Sample a STRDS at vector point projects, synchronous call"""
+    """Sample a STRDS at vector point projects, synchronous call."""
 
     @swagger.doc(deepcopy(SCHEMA_DOC))
     def post(self, project_name, mapset_name, strds_name):
-        """Sample a strds by point coordinates, synchronous call"""
+        """Sample a strds by point coordinates, synchronous call."""
         check = self._execute(project_name, mapset_name, strds_name)
         if check is not None:
             http_code, response_model = self.wait_until_finish()
@@ -291,7 +291,7 @@ def start_job(*args):
 
 
 class AsyncEphemeralSTRDSSamplingGeoJSON(EphemeralProcessing):
-    """Sample a STRDS at vector points using GeoJSON as input"""
+    """Sample a STRDS at vector points using GeoJSON as input."""
 
     def __init__(self, *args):
         EphemeralProcessing.__init__(self, *args)

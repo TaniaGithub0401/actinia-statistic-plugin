@@ -132,8 +132,7 @@ class AsyncEphemeralRasterSamplingResource(ResourceBase):
     @swagger.doc(deepcopy(SCHEMA_DOC))
     def post(self, project_name, mapset_name, raster_name):
         """
-        Perform raster map sampling on a raster map layer based on input
-        points asynchronously
+        Sample a raster map layer using input points asynchronously.
         """
         self._execute(project_name, mapset_name, raster_name)
         html_code, response_model = pickle.loads(self.response_data)
@@ -153,8 +152,7 @@ class SyncEphemeralRasterSamplingResource(
     @swagger.doc(deepcopy(SCHEMA_DOC))
     def post(self, project_name, mapset_name, raster_name):
         """
-        Perform raster map sampling on a raster map layer based on input
-        points synchronously
+        Sample a raster map layer using input points synchronously.
         """
         check = self._execute(project_name, mapset_name, raster_name)
         if check is not None:
