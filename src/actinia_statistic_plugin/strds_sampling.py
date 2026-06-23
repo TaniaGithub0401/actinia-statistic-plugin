@@ -350,7 +350,7 @@ class AsyncEphemeralSTRDSSampling(EphemeralProcessing):
                         {
                             "param": "column",
                             "value": "id text, x double precision, y double "
-                                     "precision",
+                            "precision",
                         },
                         {
                             "param": "x",
@@ -359,7 +359,7 @@ class AsyncEphemeralSTRDSSampling(EphemeralProcessing):
                         {
                             "param": "y",
                             "value": "3",
-                        }
+                        },
                     ],
                     "outputs": [
                         {
@@ -367,7 +367,7 @@ class AsyncEphemeralSTRDSSampling(EphemeralProcessing):
                             "value": "input_points",
                         }
                     ],
-                    "superquiet": True
+                    "superquiet": True,
                 },
                 {
                     "id": "t_rast_sample_2",
@@ -384,7 +384,7 @@ class AsyncEphemeralSTRDSSampling(EphemeralProcessing):
                         {
                             "param": "column",
                             "value": "id",
-                        }
+                        },
                     ],
                     "outputs": [
                         {
@@ -393,7 +393,7 @@ class AsyncEphemeralSTRDSSampling(EphemeralProcessing):
                         }
                     ],
                     "flags": "rn",
-                    "superquiet": True
+                    "superquiet": True,
                 },
             ],
             "version": "1",

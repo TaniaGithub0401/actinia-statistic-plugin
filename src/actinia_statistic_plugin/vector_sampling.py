@@ -20,7 +20,6 @@ from actinia_core.core.common.app import auth
 from actinia_core.core.common.api_logger import log_api_call
 from .response_models import VectorSamplingResponseModel
 
-
 __license__ = "GPL-3.0-or-later"
 __author__ = "Markus Neteler"
 __copyright__ = (
@@ -211,7 +210,7 @@ class AsyncEphemeralVectorSampling(EphemeralProcessing):
                         "delimiter": "|",
                     },
                     "flags": "ag",
-                    "superquiet": True
+                    "superquiet": True,
                 },
             ],
             "version": "1",

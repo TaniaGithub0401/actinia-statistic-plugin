@@ -26,7 +26,6 @@ from .response_models import (
 )
 from actinia_core.models.response_models import ProcessingErrorResponseModel
 
-
 __license__ = "GPL-3.0-or-later"
 __author__ = "Sören Gebbert"
 __copyright__ = "Copyright 2016-2025, Sören Gebbert"
@@ -177,9 +176,7 @@ class SyncEphemeralSTRDSAreaStatsResource(
                           is missing
 
         """
-        check = self._execute(
-            project_name, mapset_name, strds_name, timestamp
-        )
+        check = self._execute(project_name, mapset_name, strds_name, timestamp)
         if check is not None:
             http_code, response_model = self.wait_until_finish()
         else:
@@ -235,7 +232,7 @@ class AsyncEphemeralSTRDSAreaStats(EphemeralProcessing):
                             "value": "polygon",
                         }
                     ],
-                    "superquiet": True
+                    "superquiet": True,
                 },
                 {
                     "id": "t_create_2",
@@ -268,7 +265,7 @@ class AsyncEphemeralSTRDSAreaStats(EphemeralProcessing):
                             "value": "polygon_stvds",
                         }
                     ],
-                    "superquiet": True
+                    "superquiet": True,
                 },
                 {
                     "id": "t_register_3",
@@ -296,7 +293,7 @@ class AsyncEphemeralSTRDSAreaStats(EphemeralProcessing):
                         },
                     ],
                     "flags": "i",
-                    "superquiet": True
+                    "superquiet": True,
                 },
                 {
                     "id": "t_sample_4",
@@ -319,7 +316,7 @@ class AsyncEphemeralSTRDSAreaStats(EphemeralProcessing):
                             "value": "strds",
                         },
                     ],
-                    "superquiet": True
+                    "superquiet": True,
                 },
             ],
             "version": "1",
@@ -376,7 +373,7 @@ class AsyncEphemeralSTRDSAreaStats(EphemeralProcessing):
                             "value": raster_name,
                         },
                     ],
-                    "superquiet": True
+                    "superquiet": True,
                 },
                 {
                     "id": "r_mask_6",
@@ -387,7 +384,7 @@ class AsyncEphemeralSTRDSAreaStats(EphemeralProcessing):
                             "value": "polygon",
                         }
                     ],
-                    "superquiet": True
+                    "superquiet": True,
                 },
                 {
                     "id": "r_stats_7",
@@ -409,7 +406,7 @@ class AsyncEphemeralSTRDSAreaStats(EphemeralProcessing):
                         }
                     ],
                     "flags": "acpl",
-                    "superquiet": True
+                    "superquiet": True,
                 },
             ],
             "version": "1",

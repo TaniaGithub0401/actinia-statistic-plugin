@@ -331,7 +331,7 @@ class AsyncEphemeralSTRDSSamplingGeoJSON(EphemeralProcessing):
                             "value": "input_points",
                         }
                     ],
-                    "superquiet": True
+                    "superquiet": True,
                 },
                 {
                     "id": "t_rast_sample_2",
@@ -344,7 +344,7 @@ class AsyncEphemeralSTRDSSamplingGeoJSON(EphemeralProcessing):
                         {
                             "param": "points",
                             "value": "input_points",
-                        }
+                        },
                     ],
                     "outputs": [
                         {
@@ -353,7 +353,7 @@ class AsyncEphemeralSTRDSSamplingGeoJSON(EphemeralProcessing):
                         }
                     ],
                     "flags": "rn",
-                    "superquiet": True
+                    "superquiet": True,
                 },
             ],
             "version": "1",

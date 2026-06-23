@@ -49,7 +49,7 @@ SCHEMA_DOC = {
         {
             "name": "mapset_name",
             "description": "The name of the mapset that contains the required "
-                           "raster map layer",
+            "raster map layer",
             "required": True,
             "in": "path",
             "type": "string",
@@ -57,7 +57,7 @@ SCHEMA_DOC = {
         {
             "name": "raster_name",
             "description": "The name of the raster map layer to compute the "
-                           "statistics from",
+            "statistics from",
             "required": True,
             "in": "path",
             "type": "string",
@@ -65,7 +65,7 @@ SCHEMA_DOC = {
         {
             "name": "shape",
             "description": "GeoJSON definition of the polygon to compute the "
-                           "statistics for.",
+            "statistics for.",
             "required": True,
             "in": "body",
             "schema": {"type": "string"},
@@ -74,12 +74,12 @@ SCHEMA_DOC = {
     "responses": {
         "200": {
             "description": "The result of the areal raster statistical "
-                           "computation",
+            "computation",
             "schema": RasterAreaUnivarStatsResponseModel,
         },
         "400": {
             "description": "The error message and a detailed log why raster"
-                           " statistic did not succeeded",
+            " statistic did not succeeded",
             "schema": ProcessingErrorResponseModel,
         },
     },
@@ -186,7 +186,7 @@ class AsyncEphemeralRasterAreaStatsUnivar(EphemeralProcessing):
                             "value": "polygon",
                         }
                     ],
-                    "superquiet": True
+                    "superquiet": True,
                 },
             ],
             "version": "1",
@@ -225,18 +225,15 @@ class AsyncEphemeralRasterAreaStatsUnivar(EphemeralProcessing):
                         {
                             "param": "method",
                             "value": "number,minimum,maximum,range,average,"
-                                     "median,stddev,sum,variance,coeff_var",
+                            "median,stddev,sum,variance,coeff_var",
                         },
                         {
                             "param": "raster",
-                            "value": raster_name + "@" + self.mapset_name
+                            "value": raster_name + "@" + self.mapset_name,
                         },
-                        {
-                            "param": "column_prefix",
-                            "value": "raster"
-                        },
+                        {"param": "column_prefix", "value": "raster"},
                     ],
-                    "superquiet": True
+                    "superquiet": True,
                 },
                 {
                     "id": "v_db_select_4",
@@ -253,7 +250,7 @@ class AsyncEphemeralRasterAreaStatsUnivar(EphemeralProcessing):
                             "value": result_file.name,
                         },
                     ],
-                    "superquiet": True
+                    "superquiet": True,
                 },
             ],
             "version": "1",
