@@ -113,9 +113,9 @@ class AsyncEphemeralRasterAreaStatsResource(ResourceBase):
 
     @swagger.doc(deepcopy(SCHEMA_DOC))
     def post(self, project_name, mapset_name, raster_name):
-        """
-        Compute areal categorical raster statistics asynchronously.
-        """
+        """Compute areal categorical raster statistics asynchronously.
+
+        Statistics are based on an input polygon."""
         self._execute(project_name, mapset_name, raster_name)
         html_code, response_model = pickle.loads(self.response_data)
         return make_response(jsonify(response_model), html_code)
@@ -133,9 +133,9 @@ class SyncEphemeralRasterAreaStatsResource(
 
     @swagger.doc(deepcopy(SCHEMA_DOC))
     def post(self, project_name, mapset_name, raster_name):
-        """
-        Compute areal categorical raster statistics synchronously.
-        """
+        """Compute areal categorical raster statistics synchronously.
+
+        Statistics are based on an input polygon."""
         check = self._execute(project_name, mapset_name, raster_name)
         if check is not None:
             http_code, response_model = self.wait_until_finish()
@@ -205,7 +205,7 @@ class AsyncEphemeralRasterAreaStats(EphemeralProcessing):
                         {"param": "vector", "value": "polygon"},
                         {
                             "param": "align",
-                            "value": raster_name + "@" + self.mapset_name,
+                            "value": f"{raster_name}@{self.mapset_name}",
                         },
                     ],
                     "flags": "p",
@@ -223,7 +223,7 @@ class AsyncEphemeralRasterAreaStats(EphemeralProcessing):
                     "inputs": [
                         {
                             "param": "input",
-                            "value": raster_name + "@" + self.mapset_name,
+                            "value": f"{raster_name}@{self.mapset_name}",
                         },
                         {"param": "separator", "value": "|"},
                     ],

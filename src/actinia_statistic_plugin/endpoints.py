@@ -66,7 +66,7 @@ def create_project_endpoints(flask_api):
     """
     Function to add resources with "projects" inside the endpoint url.
     Args:
-        apidoc (flask_restful_swagger_2.Api): Flask api.
+        flask_api (flask_restful_swagger_2.Api): Flask api.
     """
     flask_api.add_resource(
         AsyncEphemeralSTRDSAreaStatsUnivarResource,

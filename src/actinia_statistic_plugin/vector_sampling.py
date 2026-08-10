@@ -223,6 +223,7 @@ class AsyncEphemeralVectorSampling(EphemeralProcessing):
 
         count = -1
         output_list = []
+        point = {}
         # Convert the result of v.what into actinia response format (list of
         # points with point ID, coordinate pair and vector map attributes)
         for entry in self.module_results["info"]:
@@ -230,7 +231,7 @@ class AsyncEphemeralVectorSampling(EphemeralProcessing):
                 key, val = entry.split("=")
                 if key == "East":
                     count += 1
-                    if "point" in locals():
+                    if point:
                         output_list.append(point)
                     point = {points[count][0]: {key: val}}
                 else:

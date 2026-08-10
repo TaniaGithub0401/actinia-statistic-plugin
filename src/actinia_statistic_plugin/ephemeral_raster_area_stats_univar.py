@@ -110,9 +110,9 @@ class AsyncEphemeralRasterAreaStatsUnivarResource(ResourceBase):
 
     @swagger.doc(deepcopy(SCHEMA_DOC))
     def post(self, project_name, mapset_name, raster_name):
-        """
-        Compute areal univariate raster statistics asynchronously.
-        """
+        """Compute areal univariate raster statistics asynchronously.
+
+        Statistics are based on an input polygon."""
         self._execute(project_name, mapset_name, raster_name)
         html_code, response_model = pickle.loads(self.response_data)
         return make_response(jsonify(response_model), html_code)
@@ -127,9 +127,9 @@ class SyncEphemeralRasterAreaStatsUnivarResource(
 
     @swagger.doc(deepcopy(SCHEMA_DOC))
     def post(self, project_name, mapset_name, raster_name):
-        """
-        Compute areal univariate raster statistics synchronously.
-        """
+        """Compute areal univariate raster statistics synchronously.
+
+        Statistics are based on an input polygon."""
         check = self._execute(project_name, mapset_name, raster_name)
         if check is not None:
             http_code, response_model = self.wait_until_finish()
@@ -229,7 +229,7 @@ class AsyncEphemeralRasterAreaStatsUnivar(EphemeralProcessing):
                         },
                         {
                             "param": "raster",
-                            "value": raster_name + "@" + self.mapset_name,
+                            "value": f"{raster_name}@{self.mapset_name}",
                         },
                         {"param": "column_prefix", "value": "raster"},
                     ],

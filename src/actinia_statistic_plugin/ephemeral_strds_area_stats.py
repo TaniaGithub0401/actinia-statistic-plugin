@@ -149,6 +149,8 @@ class AsyncEphemeralSTRDSAreaStatsResource(ResourceBase):
         """
         Compute STRDS-based areal categorical raster statistics asynchronously.
 
+        Statistics are based on a vector map for a single raster layer that is
+        temporally sampled from a STRDS by a timestamp.
         Raises:
             InvalidUsage: In case the timestamp is wrong or the XML content
                           is missing
@@ -171,6 +173,8 @@ class SyncEphemeralSTRDSAreaStatsResource(
     def post(self, project_name, mapset_name, strds_name, timestamp):
         """Compute STRDS-based areal categorical raster statistics synchronously.
 
+        Statistics are based on a vector map for a single raster layer that is
+        temporally sampled from a STRDS by a timestamp.
         Raises:
             InvalidUsage: In case the timestamp is wrong or the XML content
                           is missing
