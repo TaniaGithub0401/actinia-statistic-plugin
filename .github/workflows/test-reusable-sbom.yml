@@ -1,0 +1,17 @@
+name: Test reusable SBOM requirements workflow
+
+on:
+  push:
+    branches:
+      - test-reusable-sbom-requirements
+
+jobs:
+  sbom-scan:
+    permissions:
+      contents: read
+      security-events: write
+
+    uses: TaniaGithub0401/github-workflows/.github/workflows/sbom-vulnerability-scan.yml@add-reusable-sbom-vulnerability-workflow
+    with:
+      requirements: requirements.txt
+      fail-build: false
